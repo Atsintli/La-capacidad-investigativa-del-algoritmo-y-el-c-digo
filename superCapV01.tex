@@ -32,6 +32,9 @@
 \usepackage{tikz} % para iteraciones
 \usepackage{xstring}
 
+\usepackage{endnotes}
+\let\footnote=\endnote
+
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
@@ -42,7 +45,7 @@
 \renewcommand{\headrulewidth}{0.1pt}
 
 %autor
-\author{Aaron, Hernani}
+\author{Aaron Escobar y Hernani Villaseñor}
 
 %Interlineado
 \renewcommand{\baselinestretch}{1.2}
@@ -72,7 +75,7 @@
 %\input{sections/introduccion}
 
 % lee las secciones desde una carpeta y los incluye en orden numérico
-\foreach \k in {0, ...,99} {% chktex 11 chktex 1  chktex 26
+\foreach \k in {0, ..., 99}{% chktex 11 chktex 1  chktex 26
 \edef\FileName{./sections/subCap\k.tex}% The % here are necessary to eliminate any
 \IfFileExists{\FileName}{%  spurious spaces that may get inserted
 \input{\FileName}%
@@ -85,9 +88,9 @@
 % lee los archivos bibs para las citas
 \xdef\bibfiles{}
 \foreach \k in {0, ...,99}{% chktex 11 chktex 1  chktex 26
-  \edef\FileName{./bib/bib\k}%     The % here are necessary to eliminate any
-    \IfFileExists{\FileName.bib}{%  spurious spaces that may get inserted
-\xdef\bibfiles{\FileName,\bibfiles}%       at these points
+\edef\FileName{./bib/bib1\k}%     The % here are necessary to eliminate any
+\IfFileExists{\FileName.bib}{%  spurious spaces that may get inserted
+\xdef\bibfiles{\FileName,\bibfiles} %at these points
     }
 }
 \StrGobbleRight{\bibfiles}{1}[\bibfiles_]
